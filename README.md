@@ -255,4 +255,4 @@ For detailed error information, check the console output during validation runs.
 
 ## 📞 Support
 
-For issues and feature requests, please create an issue in the project repository. 
+For issues and feature requests, please create an issue in the project repository.

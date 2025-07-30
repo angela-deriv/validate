@@ -1,0 +1,1579 @@
+====================================================================================================
+🔄 KUBERNETES REPOSITORY BATCH ANALYSIS REPORT
+====================================================================================================
+Repository: https://github.com/kubernetes/examples
+Branch: main
+Batch Size: 3
+Started: 2025-07-29 17:44:24
+====================================================================================================
+
+📊 BATCH-BY-BATCH ANALYSIS
+====================================================================================================
+
+🔄 BATCH 1/79 ANALYSIS
+==================================================
+Files in Batch: persistent-volume-label-initializer-config.yaml, dns-backend-rc.yaml, dns-backend-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 persistent-volume-label-initializer-config.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 dns-backend-rc.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 dns-backend-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 2/79 ANALYSIS
+==================================================
+Files in Batch: dns-frontend-pod.yaml, namespace-dev.yaml, namespace-prod.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 4
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 dns-frontend-pod.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 3/79 ANALYSIS
+==================================================
+Files in Batch: cockroachdb-statefulset.yaml, be.yaml, exclusive-1.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 16
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 cockroachdb-statefulset.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 cockroachdb-statefulset.yaml:
+    • no-read-only-root-fs: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 5 more warnings
+  📁 be.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 exclusive-1.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+
+====================================================================================================
+
+🔄 BATCH 4/79 ANALYSIS
+==================================================
+Files in Batch: exclusive-2.yaml, exclusive-3.yaml, exclusive-4.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 9
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 exclusive-2.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+  📁 exclusive-3.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+  📁 exclusive-4.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+
+====================================================================================================
+
+🔄 BATCH 5/79 ANALYSIS
+==================================================
+Files in Batch: shared.yaml, es-rc.yaml, es-svc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 19
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 shared.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 es-rc.yaml:
+    • deprecated-service-account-field: ...
+    • drop-net-raw-capability: ...
+    • latest-tag: ...
+    ... and 11 more warnings
+  📁 es-svc.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 6/79 ANALYSIS
+==================================================
+Files in Batch: es-client-rc.yaml, es-data-rc.yaml, es-discovery-svc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 15
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 es-client-rc.yaml:
+    • deprecated-service-account-field: ...
+    • drop-net-raw-capability: ...
+    • no-read-only-root-fs: ...
+    ... and 4 more warnings
+  📁 es-data-rc.yaml:
+    • deprecated-service-account-field: ...
+    • drop-net-raw-capability: ...
+    • no-read-only-root-fs: ...
+    ... and 4 more warnings
+  📁 es-discovery-svc.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 7/79 ANALYSIS
+==================================================
+Files in Batch: es-master-rc.yaml, es-svc.yaml, service-account.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 8
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 es-master-rc.yaml:
+    • deprecated-service-account-field: ...
+    • drop-net-raw-capability: ...
+    • no-read-only-root-fs: ...
+    ... and 4 more warnings
+  📁 es-svc.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 8/79 ANALYSIS
+==================================================
+Files in Batch: rbac.yaml, service-account.yaml, pod.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 4
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 9/79 ANALYSIS
+==================================================
+Files in Batch: nginx-app.yaml, mysql-pod.yaml, mysql-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 nginx-app.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 mysql-pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 mysql-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 10/79 ANALYSIS
+==================================================
+Files in Batch: wildfly-rc.yaml, javaweb-2.yaml, javaweb.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 20
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 wildfly-rc.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 javaweb-2.yaml:
+    • no-read-only-root-fs: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 5 more warnings
+  📁 javaweb.yaml:
+    • no-read-only-root-fs: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 5 more warnings
+
+====================================================================================================
+
+🔄 BATCH 11/79 ANALYSIS
+==================================================
+Files in Batch: newrelic-config-template.yaml, newrelic-infra-daemonset.yaml, newrelic-config-template.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 3
+Best Practice Warnings: 1
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 newrelic-config-template.yaml:
+  📁 newrelic-infra-daemonset.yaml:
+  📁 newrelic-config-template.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 newrelic-infra-daemonset.yaml:
+    • no-extensions-v1beta: ...
+
+====================================================================================================
+
+🔄 BATCH 12/79 ANALYSIS
+==================================================
+Files in Batch: newrelic-config.yaml, newrelic-daemonset.yaml, mongo-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 17
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 newrelic-daemonset.yaml:
+    • docker-sock: ...
+    • host-ipc: ...
+    • host-network: ...
+    ... and 9 more warnings
+  📁 mongo-controller.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 13/79 ANALYSIS
+==================================================
+Files in Batch: mongo-service.yaml, web-controller-demo.yaml, web-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 12
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 mongo-service.yaml:
+    • dangling-service: ...
+  📁 web-controller-demo.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 web-controller.yaml:
+    • latest-tag: ...
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    ... and 3 more warnings
+
+====================================================================================================
+
+🔄 BATCH 14/79 ANALYSIS
+==================================================
+Files in Batch: web-service.yaml, etcd-controller.yaml, etcd-discovery-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 14
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 web-service.yaml:
+    • dangling-service: ...
+  📁 etcd-controller.yaml:
+    • drop-net-raw-capability: ...
+    • latest-tag: ...
+    • no-anti-affinity: ...
+    ... and 4 more warnings
+  📁 etcd-discovery-controller.yaml:
+    • drop-net-raw-capability: ...
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    ... and 3 more warnings
+
+====================================================================================================
+
+🔄 BATCH 15/79 ANALYSIS
+==================================================
+Files in Batch: etcd-discovery-service.yaml, etcd-service.yaml, openshift-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 7
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 etcd-discovery-service.yaml:
+    • dangling-service: ...
+  📁 etcd-service.yaml:
+    • dangling-service: ...
+  📁 openshift-controller.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 16/79 ANALYSIS
+==================================================
+Files in Batch: openshift-origin-namespace.yaml, openshift-service.yaml, aws-ebs.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 1
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 openshift-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 17/79 ANALYSIS
+==================================================
+Files in Batch: cinder-storage-class.yaml, example-pod.yaml, gce-pd.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 example-pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 18/79 ANALYSIS
+==================================================
+Files in Batch: glusterfs-secret.yaml, glusterfs-storageclass.yaml, example-pod.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 example-pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 19/79 ANALYSIS
+==================================================
+Files in Batch: quobyte-admin-secret.yaml, quobyte-storage-class.yaml, ceph-secret-admin.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 0
+
+✅ No issues found in this batch!
+
+====================================================================================================
+
+🔄 BATCH 20/79 ANALYSIS
+==================================================
+Files in Batch: ceph-secret-user.yaml, pod.yaml, rbd-storage-class.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 21/79 ANALYSIS
+==================================================
+Files in Batch: bindings.yaml, pod.yaml, pod_priv.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 12
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 pod_priv.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • privilege-escalation-container: ...
+    ... and 4 more warnings
+
+====================================================================================================
+
+🔄 BATCH 22/79 ANALYSIS
+==================================================
+Files in Batch: policies.yaml, roles.yaml, selenium-hub-deployment.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 3
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 policies.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 selenium-hub-deployment.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+
+====================================================================================================
+
+🔄 BATCH 23/79 ANALYSIS
+==================================================
+Files in Batch: selenium-hub-svc.yaml, selenium-node-chrome-deployment.yaml, selenium-node-firefox-deployment.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 9
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 selenium-hub-svc.yaml:
+    • dangling-service: ...
+  📁 selenium-node-chrome-deployment.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 selenium-node-firefox-deployment.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 24/79 ANALYSIS
+==================================================
+Files in Batch: namespace-spark-cluster.yaml, glusterfs-endpoints.yaml, spark-master-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 3
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 spark-master-controller.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-memory-requirements: ...
+
+====================================================================================================
+
+🔄 BATCH 25/79 ANALYSIS
+==================================================
+Files in Batch: spark-master-service.yaml, spark-worker-controller.yaml, spark-master-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 8
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 spark-master-service.yaml:
+    • dangling-service: ...
+  📁 spark-worker-controller.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 spark-master-controller.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-memory-requirements: ...
+
+====================================================================================================
+
+🔄 BATCH 26/79 ANALYSIS
+==================================================
+Files in Batch: spark-master-service.yaml, spark-ui-proxy-controller.yaml, spark-ui-proxy-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 spark-master-service.yaml:
+    • dangling-service: ...
+  📁 spark-ui-proxy-controller.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-memory-requirements: ...
+  📁 spark-ui-proxy-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 27/79 ANALYSIS
+==================================================
+Files in Batch: spark-worker-controller.yaml, zeppelin-controller.yaml, zeppelin-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 8
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 spark-worker-controller.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 zeppelin-controller.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-memory-requirements: ...
+  📁 zeppelin-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 28/79 ANALYSIS
+==================================================
+Files in Batch: hazelcast-deployment.yaml, hazelcast-service.yaml, minio-distributed-headless-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 6
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 hazelcast-deployment.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 hazelcast-service.yaml:
+    • dangling-service: ...
+  📁 minio-distributed-headless-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 29/79 ANALYSIS
+==================================================
+Files in Batch: minio-distributed-service.yaml, minio-distributed-statefulset.yaml, minio-standalone-deployment.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 14
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 minio-distributed-service.yaml:
+    • dangling-service: ...
+  📁 minio-distributed-statefulset.yaml:
+    • env-var-secret: ...
+    • latest-tag: ...
+    • no-anti-affinity: ...
+    ... and 4 more warnings
+  📁 minio-standalone-deployment.yaml:
+    • env-var-secret: ...
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    ... and 3 more warnings
+
+====================================================================================================
+
+🔄 BATCH 30/79 ANALYSIS
+==================================================
+Files in Batch: minio-standalone-pvc.yaml, minio-standalone-service.yaml, pxc-cluster-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 2
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 minio-standalone-service.yaml:
+    • dangling-service: ...
+  📁 pxc-cluster-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 31/79 ANALYSIS
+==================================================
+Files in Batch: pxc-node1.yaml, pxc-node2.yaml, pxc-node3.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 12
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pxc-node1.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 pxc-node2.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 pxc-node3.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 32/79 ANALYSIS
+==================================================
+Files in Batch: redis-controller.yaml, redis-master.yaml, redis-sentinel-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 16
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 redis-controller.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 redis-master.yaml:
+    • no-read-only-root-fs: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 5 more warnings
+  📁 redis-sentinel-controller.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 33/79 ANALYSIS
+==================================================
+Files in Batch: redis-sentinel-service.yaml, admin-pod.yaml, admin-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 6
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 redis-sentinel-service.yaml:
+    • dangling-service: ...
+  📁 admin-pod.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 admin-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 34/79 ANALYSIS
+==================================================
+Files in Batch: driver-service.yaml, rc.yaml, etcd-controller-template.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 etcd-controller-template.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 driver-service.yaml:
+    • dangling-service: ...
+  📁 rc.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 35/79 ANALYSIS
+==================================================
+Files in Batch: etcd-service-template.yaml, guestbook-controller.yaml, guestbook-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 etcd-service-template.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 guestbook-controller.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 guestbook-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 36/79 ANALYSIS
+==================================================
+Files in Batch: vtctld-controller-template.yaml, vtctld-service.yaml, vtgate-controller-template.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 4
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 vtgate-controller-template.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 vtctld-controller-template.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+  📁 vtctld-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 37/79 ANALYSIS
+==================================================
+Files in Batch: vtgate-service.yaml, vttablet-pod-template.yaml, storm-worker-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 11
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 vtgate-service.yaml:
+    • dangling-service: ...
+  📁 vttablet-pod-template.yaml:
+    • no-read-only-root-fs: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 3 more warnings
+  📁 storm-worker-controller.yaml:
+    • latest-tag: ...
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 38/79 ANALYSIS
+==================================================
+Files in Batch: sysdig-daemonset.yaml, sysdig-rc.yaml, aws-ebs-web.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 34
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 sysdig-daemonset.yaml:
+    • docker-sock: ...
+    • host-network: ...
+    • host-pid: ...
+    ... and 11 more warnings
+  📁 sysdig-rc.yaml:
+    • docker-sock: ...
+    • host-network: ...
+    • host-pid: ...
+    ... and 12 more warnings
+  📁 aws-ebs-web.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 39/79 ANALYSIS
+==================================================
+Files in Batch: azure.yaml, pod-uses-account-hdd.yaml, pvc-on-account-hdd.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 azure.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 pod-uses-account-hdd.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 40/79 ANALYSIS
+==================================================
+Files in Batch: storageclass-account-hdd.yaml, pod-uses-dedicated-hdd.yaml, pvc-on-dedicated-hdd.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 storageclass-account-hdd.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod-uses-dedicated-hdd.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 41/79 ANALYSIS
+==================================================
+Files in Batch: storageclass-dedicated-hdd.yaml, pod-uses-shared-hdd.yaml, pvc-on-shared-hdd.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 storageclass-dedicated-hdd.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod-uses-shared-hdd.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 42/79 ANALYSIS
+==================================================
+Files in Batch: storageclass-shared-hdd.yaml, pod-uses-shared-ssd.yaml, pvc-on-shared-ssd.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 storageclass-shared-hdd.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod-uses-shared-ssd.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 43/79 ANALYSIS
+==================================================
+Files in Batch: storageclass-shared-ssd.yaml, pod-uses-managed-hdd.yaml, pvc-on-managed-hdd.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 storageclass-shared-ssd.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod-uses-managed-hdd.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 44/79 ANALYSIS
+==================================================
+Files in Batch: storageclass-managed-hdd.yaml, pod-uses-managed-ssd.yaml, pvc-on-managed-ssd.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 storageclass-managed-hdd.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod-uses-managed-ssd.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 45/79 ANALYSIS
+==================================================
+Files in Batch: storageclass-managed-ssd.yaml, pod-uses-existing-managed-disk.yaml, azure-2.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 10
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 storageclass-managed-ssd.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod-uses-existing-managed-disk.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 azure-2.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 46/79 ANALYSIS
+==================================================
+Files in Batch: azure-pv.yaml, azure-pvc.yaml, azure.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 azure.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 47/79 ANALYSIS
+==================================================
+Files in Batch: azure-secret.yaml, cephfs-with-secret.yaml, cephfs.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 cephfs-with-secret.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 cephfs.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 48/79 ANALYSIS
+==================================================
+Files in Batch: ceph-secret.yaml, cinder-web.yaml, fc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 fc.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 cinder-web.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 49/79 ANALYSIS
+==================================================
+Files in Batch: ds.yaml, nginx-dummy-attachable.yaml, nginx-dummy.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 11
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 ds.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 ds.yaml:
+    • no-extensions-v1beta: ...
+  📁 nginx-dummy-attachable.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 nginx-dummy.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 50/79 ANALYSIS
+==================================================
+Files in Batch: nginx-lvm.yaml, nginx-nfs.yaml, nginx.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 15
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 nginx-lvm.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 nginx-nfs.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 nginx.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 51/79 ANALYSIS
+==================================================
+Files in Batch: flocker-pod-with-rc.yml, flocker-pod.yml, glusterfs-endpoints.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 9
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 flocker-pod-with-rc.yml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+  📁 flocker-pod.yml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 52/79 ANALYSIS
+==================================================
+Files in Batch: glusterfs-pod.yaml, glusterfs-service.yaml, chap-secret.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 6
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 glusterfs-pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 glusterfs-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 53/79 ANALYSIS
+==================================================
+Files in Batch: iscsi-chap.yaml, iscsi.yaml, nfs-busybox-deployment.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 16
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 iscsi-chap.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 iscsi.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 nfs-busybox-deployment.yaml:
+    • latest-tag: ...
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    ... and 3 more warnings
+
+====================================================================================================
+
+🔄 BATCH 54/79 ANALYSIS
+==================================================
+Files in Batch: nfs-pv.yaml, nfs-pvc.yaml, nfs-server-deployment.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 6
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 nfs-server-deployment.yaml:
+    • no-read-only-root-fs: ...
+    • privilege-escalation-container: ...
+    • privileged-container: ...
+    ... and 3 more warnings
+
+====================================================================================================
+
+🔄 BATCH 55/79 ANALYSIS
+==================================================
+Files in Batch: nfs-server-service.yaml, nfs-web-deployment.yaml, nfs-web-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 8
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 nfs-server-service.yaml:
+    • dangling-service: ...
+  📁 nfs-web-deployment.yaml:
+    • latest-tag: ...
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    ... and 3 more warnings
+  📁 nfs-web-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 56/79 ANALYSIS
+==================================================
+Files in Batch: nfs-server-azure-pv.yaml, nfs-server-cdk-pv.yaml, nfs-server-gce-pv.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 0
+
+✅ No issues found in this batch!
+
+====================================================================================================
+
+🔄 BATCH 57/79 ANALYSIS
+==================================================
+Files in Batch: portworx-volume-pod.yaml, portworx-volume-pv.yaml, portworx-volume-pvc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 portworx-volume-pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 58/79 ANALYSIS
+==================================================
+Files in Batch: portworx-volume-pvcpod.yaml, portworx-volume-pvcsc.yaml, portworx-volume-pvcscpod.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 portworx-volume-pvcpod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 portworx-volume-pvcscpod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 59/79 ANALYSIS
+==================================================
+Files in Batch: portworx-volume-sc-high.yaml, quobyte-pod.yaml, rbd-with-secret.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 quobyte-pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 rbd-with-secret.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 60/79 ANALYSIS
+==================================================
+Files in Batch: rbd.yaml, ceph-secret.yaml, pod-sc-pvc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 rbd.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 pod-sc-pvc.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 61/79 ANALYSIS
+==================================================
+Files in Batch: pod.yaml, sc-pvc.yaml, sc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 62/79 ANALYSIS
+==================================================
+Files in Batch: secret.yaml, storageos-pod.yaml, storageos-pv.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 4
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 storageos-pod.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 63/79 ANALYSIS
+==================================================
+Files in Batch: storageos-pvc.yaml, storageos-pvcpod.yaml, storageos-sc-pvc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 4
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 storageos-pvcpod.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 64/79 ANALYSIS
+==================================================
+Files in Batch: storageos-sc-pvcpod.yaml, storageos-sc.yaml, storageos-secret.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 4
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 storageos-sc-pvcpod.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 65/79 ANALYSIS
+==================================================
+Files in Batch: deployment.yaml, simple-statefulset.yaml, simple-storageclass.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 deployment.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 simple-statefulset.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 66/79 ANALYSIS
+==================================================
+Files in Batch: vsphere-volume-pod.yaml, vsphere-volume-pv.yaml, vsphere-volume-pvc.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 vsphere-volume-pod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 67/79 ANALYSIS
+==================================================
+Files in Batch: vsphere-volume-pvcpod.yaml, vsphere-volume-pvcsc.yaml, vsphere-volume-pvcscpod.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 vsphere-volume-pvcpod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 vsphere-volume-pvcscpod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 68/79 ANALYSIS
+==================================================
+Files in Batch: vsphere-volume-pvcscvsanpod.yaml, vsphere-volume-sc-fast.yaml, vsphere-volume-sc-vsancapabilities-with-datastore.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 5
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 vsphere-volume-pvcscvsanpod.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 69/79 ANALYSIS
+==================================================
+Files in Batch: vsphere-volume-sc-vsancapabilities.yaml, vsphere-volume-sc-with-datastore.yaml, vsphere-volume-spbm-policy-with-datastore.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 0
+
+✅ No issues found in this batch!
+
+====================================================================================================
+
+🔄 BATCH 70/79 ANALYSIS
+==================================================
+Files in Batch: vsphere-volume-spbm-policy.yaml, deployment.yaml, ingress.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 4
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 deployment.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-cpu-requirements: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 71/79 ANALYSIS
+==================================================
+Files in Batch: pv.yaml, pvc.yaml, service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 1
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 72/79 ANALYSIS
+==================================================
+Files in Batch: cassandra-service.yaml, cassandra-statefulset.yaml, cassandra.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 1
+Best Practice Warnings: 5
+
+🚨 SCHEMA VALIDATION ERRORS:
+  📁 cassandra.yaml:
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 cassandra-service.yaml:
+    • dangling-service: ...
+  📁 cassandra-statefulset.yaml:
+    • drop-net-raw-capability: ...
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 73/79 ANALYSIS
+==================================================
+Files in Batch: guestbook-controller.yaml, guestbook-service.yaml, redis-master-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 11
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 guestbook-controller.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 guestbook-service.yaml:
+    • dangling-service: ...
+  📁 redis-master-controller.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+
+🔄 BATCH 74/79 ANALYSIS
+==================================================
+Files in Batch: redis-master-service.yaml, redis-replica-controller.yaml, redis-replica-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 7
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 redis-master-service.yaml:
+    • dangling-service: ...
+  📁 redis-replica-controller.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+  📁 redis-replica-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 75/79 ANALYSIS
+==================================================
+Files in Batch: frontend.yaml, guestbook-all-in-one.yaml, redis-replica.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 19
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 frontend.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 guestbook-all-in-one.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-memory-requirements: ...
+    ... and 8 more warnings
+  📁 redis-replica.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 76/79 ANALYSIS
+==================================================
+Files in Batch: frontend-deployment.yaml, frontend-service.yaml, frontend-controller.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 9
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 frontend-deployment.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 frontend-service.yaml:
+    • dangling-service: ...
+  📁 frontend-controller.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+
+====================================================================================================
+
+🔄 BATCH 77/79 ANALYSIS
+==================================================
+Files in Batch: redis-master-controller.yaml, redis-replica-controller.yaml, redis-master-deployment.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 10
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 redis-master-controller.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-memory-requirements: ...
+  📁 redis-replica-controller.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 redis-master-deployment.yaml:
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    • unset-memory-requirements: ...
+
+====================================================================================================
+
+🔄 BATCH 78/79 ANALYSIS
+==================================================
+Files in Batch: redis-master-service.yaml, redis-replica-deployment.yaml, redis-replica-service.yaml
+Files Successfully Processed: 3
+Schema Validation Errors: 0
+Best Practice Warnings: 6
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 redis-master-service.yaml:
+    • dangling-service: ...
+  📁 redis-replica-deployment.yaml:
+    • no-anti-affinity: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 1 more warnings
+  📁 redis-replica-service.yaml:
+    • dangling-service: ...
+
+====================================================================================================
+
+🔄 BATCH 79/79 ANALYSIS
+==================================================
+Files in Batch: mysql-service.yaml, mysql.yaml
+Files Successfully Processed: 2
+Schema Validation Errors: 0
+Best Practice Warnings: 6
+
+⚠️  BEST PRACTICE WARNINGS:
+  📁 mysql-service.yaml:
+    • dangling-service: ...
+  📁 mysql.yaml:
+    • latest-tag: ...
+    • no-read-only-root-fs: ...
+    • run-as-non-root: ...
+    ... and 2 more warnings
+
+====================================================================================================
+

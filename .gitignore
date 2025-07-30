@@ -56,10 +56,10 @@ kubeval_repo_*/
 # Reports
 validation-report.*
 report.*
-*_report.txt
-batch_*.txt
-results.txt
-single_batch_*.txt
+# *_report.txt
+# batch_*.txt
+# results.txt
+# single_batch_*.txt
 
 # Binary tools and executables
 kube-linter

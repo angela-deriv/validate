@@ -2,7 +2,7 @@ import os
 import tempfile
 import shutil
 from pathlib import Path
-from typing import Optional, List
+from typing import Optional, List, Dict
 import subprocess
 
 
@@ -82,6 +82,50 @@ class RepoFetcher:
                     k8s_files.append(str(file_path))
         
         return sorted(k8s_files)
+    
+    def find_terraform_files(self, directory: Optional[str] = None) -> List[str]:
+        """
+        Find all Terraform files in the repository.
+        
+        Args:
+            directory: Directory to search. If None, uses the cloned repository path.
+            
+        Returns:
+            List of paths to Terraform files (.tf, .tfvars)
+        """
+        if directory is None:
+            directory = self.local_path
+            
+        if not directory or not os.path.exists(directory):
+            return []
+        
+        terraform_files = []
+        
+        for root, dirs, files in os.walk(directory):
+            # Skip .terraform directories
+            dirs[:] = [d for d in dirs if d != '.terraform']
+            
+            for file in files:
+                if file.endswith(('.tf', '.tfvars')):
+                    full_path = os.path.join(root, file)
+                    terraform_files.append(full_path)
+        
+        return sorted(terraform_files)
+    
+    def find_all_files(self, directory: Optional[str] = None) -> Dict[str, List[str]]:
+        """
+        Find both Kubernetes YAML and Terraform files in the repository.
+        
+        Args:
+            directory: Directory to search. If None, uses the cloned repository path.
+            
+        Returns:
+            Dictionary with 'yaml' and 'terraform' keys containing file lists
+        """
+        return {
+            'yaml': self.find_k8s_files(directory),
+            'terraform': self.find_terraform_files(directory)
+        }
     
     def _is_k8s_file(self, file_path: Path) -> bool:
         """

@@ -1,259 +1,231 @@
+<p align="center"><img src="images/logo/KubeLinter-horizontal.svg" width="360"></p>
+<p align="center"><b>Static analysis for Kubernetes</b></p>
 
-# Kubernetes Validation Tool with AI-Powered Reporting
+[![Go Report Card](https://goreportcard.com/badge/github.com/stackrox/kube-linter)](https://goreportcard.com/report/github.com/stackrox/kube-linter)
 
-A comprehensive tool that uses **kubeval** to validate Kubernetes YAML files from repositories and generates curated reports using an AI agent.
+# What is KubeLinter?
 
-## 🚀 Features
+KubeLinter analyzes Kubernetes YAML files and Helm charts, and checks them against a variety of best practices, with a focus on production readiness and security.
 
-- **Repository Validation**: Clone and validate Kubernetes files from any Git repository
-- **Local File Validation**: Validate local Kubernetes YAML files
-- **AI-Powered Reports**: Generate detailed, curated reports with insights and recommendations
-- **Error Categorization**: Automatically categorize and prioritize validation errors
-- **Multiple Output Formats**: Support for both text and JSON report formats
-- **Flexible Configuration**: Environment-based configuration for easy deployment
+KubeLinter runs sensible default checks, designed to give you useful information about your Kubernetes YAML files and Helm charts. This is to help teams check early and often for security misconfigurations and DevOps best practices. Some common examples of these include running containers as a non-root user, enforcing least privilege, and storing sensitive information only in secrets.
 
-## 📋 Prerequisites
+KubeLinter is configurable, so you can enable and disable checks, as well as create your own custom checks, depending on the policies you want to follow within your organization.
 
-### Required Software
+When a lint check fails, KubeLinter reports recommendations for how to resolve any potential issues and returns a non-zero exit code.
 
-1. **kubeval**: Install from [kubeval releases](https://github.com/instrumenta/kubeval/releases)
+## Documentation
+Visit https://docs.kubelinter.io for detailed documentation on installing, using and configuring KubeLinter.
+
+## Installing KubeLinter
+
+Kube-linter binaries could be found here: https://github.com/stackrox/kube-linter/releases/latest
+
+### Using Go
+
+To install using [Go](https://golang.org/), run the following command:
+
+```bash
+go install golang.stackrox.io/kube-linter/cmd/kube-linter@latest
+```
+Otherwise, download the latest binary from [Releases](https://github.com/stackrox/kube-linter/releases) and add it to your
+PATH.
+
+### Using Homebrew for macOS or LinuxBrew for Linux
+
+To install using Homebrew or LinuxBrew, run the following command:
+
+```bash
+brew install kube-linter
+```
+
+### Using nix-shell
+
+```
+nix-shell -p kube-linter
+```
+
+### Using docker
+
+```
+docker pull stackrox/kube-linter:latest
+```
+
+
+## Development
+
+### Prerequisites
+- Make sure that you have [installed Go](https://golang.org/doc/install) prior to building from source.
+
+### Building KubeLinter
+
+Installing KubeLinter from source is as simple as following these steps:
+
+1. First, clone the KubeLinter repository.
+
    ```bash
-   # macOS
-   brew install kubeval
-   
-   # Linux
-   wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
-   tar xf kubeval-linux-amd64.tar.gz
-   sudo cp kubeval /usr/local/bin
+   git clone git@github.com:stackrox/kube-linter.git
    ```
 
-2. **Git**: Required for repository cloning
-3. **Python 3.8+**: Required for running the tool
+1. Then, compile the source code. This will create the kube-linter binary files for each platform and places them in the `.gobin` folder.
 
-### Python Dependencies
+   ```bash
+   make build
+   ```
 
-Install the required Python packages:
+1. Finally, you are ready to start using KubeLinter. Verify your version to ensure you've successfully installed KubeLinter.
 
-```bash
-pip install -r requirements.txt
+   ```bash
+   .gobin/kube-linter version
+   ```
+
+### Testing KubeLinter
+There are several layers of testing. Each layer is expected to pass.
+
+1. `go` unit tests:
+
+   ```bash
+   make test
+   ```
+
+2. end-to-end integration tests:
+
+   ```bash
+   make e2e-test
+   ```
+
+3. and finally, end-to-end integration tests using `bats-core`:
+
+   ```bash
+   make e2e-bats
+   ```
+
+## Verifying KubeLinter images
+
+KubeLinter images are signed by [cosign](https://github.com/sigstore/cosign).
+We recommend verifying the image before using it.
+
+Once you've installed cosign, you can use the [KubeLinter public key](kubelinter-cosign.pub) to verify the KubeLinter image with:
+
+```shell
+cat kubelinter-cosign.pub
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEl0HCkCRzYv0qH5QiazoXeXe2qwFX
+DmAszeH26g1s3OSsG/focPWkN88wEKQ5eiE95v+Z2snUQPl/mjPdvqpyjA==
+-----END PUBLIC KEY-----
+
+
+cosign verify --key kubelinter-cosign $IMAGE_NAME
 ```
 
-## ⚙️ Configuration
+KubeLinter also provides [cosign keyless signatures](https://github.com/sigstore/cosign/blob/623d50f9b77ee85886a166daac648455e65003ec/KEYLESS.md).
 
-Create a `.env` file in the project root with the following variables:
+You can verify the KubeLinter image with:
+```shell
+# NOTE: Keyless signatures are NOT PRODUCTION ready.
 
-```env
-# AI Agent Configuration (Required)
-API_KEY=your_api_key_here
-API_URL=your_api_url_here
-MODEL_NAME=your_model_name_here
-
-# Repository Configuration (Required)
-REPO_URL=https://github.com/your-org/your-repo
-
-# Optional Configuration
-KUBEVAL_SCHEMA_LOCATION=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/
-OUTPUT_FORMAT=text
-REPORT_SEVERITY_LEVEL=error
+COSIGN_EXPERIMENTAL=1 cosign verify $IMAGE_NAME
 ```
 
-### Environment Variables
+## Using KubeLinter
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `API_KEY` | ✅ | API key for your AI service |
-| `API_URL` | ✅ | Base URL for your AI service API |
-| `MODEL_NAME` | ✅ | Name of the AI model to use |
-| `REPO_URL` | ✅ | Default Git repository URL to validate |
-| `KUBEVAL_SCHEMA_LOCATION` | ❌ | Custom kubeval schema location |
-| `OUTPUT_FORMAT` | ❌ | Output format: `text` or `json` |
-| `REPORT_SEVERITY_LEVEL` | ❌ | Minimum severity level for reporting |
+### Local YAML Linting
 
-## 🔧 Usage
+Running KubeLinter to Lint your YAML files only requires two steps in its most basic form.
 
-### Basic Repository Validation
+1. Locate the YAML file you'd like to test for security and production readiness best practices:
+1. Run the following command:
 
-Validate the repository specified in your `.env` file:
+   ```bash
+   kube-linter lint /path/to/your/yaml.yaml
+   ```
 
-```bash
-python validate.py
-```
+### Example
 
-### Custom Repository Validation
+Consider the following sample pod specification file `pod.yaml`. This file has two production readiness issues and one security issue:
 
-Validate a specific repository:
+**Security Issue:**
+1. The container in this pod is not running as a read only file system, which could allow it to write to the root filesystem.
 
-```bash
-python validate.py --repo https://github.com/kubernetes/examples
-```
+**Production readiness:**
+1. The container's memory limits are not set, which could allow it to consume excessive memory
 
-### Branch-Specific Validation
+   ```yaml
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: security-context-demo
+   spec:
+     securityContext:
+       runAsUser: 1000
+       runAsGroup: 3000
+       fsGroup: 2000
+     volumes:
+     - name: sec-ctx-vol
+       emptyDir: {}
+     containers:
+     - name: sec-ctx-demo
+       image: busybox
+       resources:
+         requests:
+           memory: "64Mi"
+           cpu: "250m"
+       command: [ "sh", "-c", "sleep 1h" ]
+       volumeMounts:
+       - name: sec-ctx-vol
+         mountPath: /data/demo
+       securityContext:
+         allowPrivilegeEscalation: false
+   ```
 
-Validate a specific branch:
+1. Copy the YAML above to pod.yaml and lint this file by running the following command:
 
-```bash
-python validate.py --repo https://github.com/kubernetes/examples --branch main
-```
+   ```bash
+   kube-linter lint pod.yaml
+   ```
+1. KubeLinter runs its default checks and reports recommendations. Below is the output from our previous command.
 
-### Local File Validation
+   ```
+   pod.yaml: (object: <no namespace>/security-context-demo /v1, Kind=Pod) The container "sec-ctx-demo" is using an invalid container image, "busybox". Please use images that are not blocked by the `BlockList` criteria : [".*:(latest)$" "^[^:]*$" "(.*/[^:]+)$"] (check: latest-tag, remediation: Use a container image with a specific tag other than latest.)
 
-Validate local Kubernetes files:
+   pod.yaml: (object: <no namespace>/security-context-demo /v1, Kind=Pod) container "sec-ctx-demo" does not have a read-only root file system (check: no-read-only-root-fs, remediation: Set readOnlyRootFilesystem to true in the container securityContext.)
 
-```bash
-python validate.py --files deployment.yaml service.yaml configmap.yaml
-```
+   pod.yaml: (object: <no namespace>/security-context-demo /v1, Kind=Pod) container "sec-ctx-demo" has memory limit 0 (check: unset-memory-requirements, remediation: Set memory limits for your container based on its requirements. Refer to https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits for details.)
 
-### Save Report to File
+   Error: found 3 lint errors
+   ```
+To learn more about using and configuring KubeLinter, visit the [documentation](./docs) page.
 
-Save the validation report to a file:
+## Mentions/Tutorials
 
-```bash
-python validate.py --output validation-report.txt
-```
+The following are tutorials on KubeLinter written by users. If you have one that you would like to add to this list, please send a PR!
 
-### JSON Output Format
+* [Ensuring YAML best practices using KubeLinter](https://www.civo.com/learn/yaml-best-practices-using-kubelinter) at civo.com by Saiyam Pathak.
+* [Analyze Kubernetes files for errors with KubeLinter](https://opensource.com/article/21/1/kubelinter) at opensource.com by Jessica Cherry.
+* [How to add a new check in KubeLinter?](https://www.psaggu.com/upstream-contribution/2021/08/17/notes.html) by Priyanka Saggu.
+* [Extending kube-linter To Build A Custom Template](https://github.com/garethahealy/kubelinter-extending-blog) by [Gareth Healy](https://github.com/garethahealy).
 
-Generate a JSON report:
+## Community
 
-```bash
-python validate.py --format json --output validation-report.json
-```
+If you would like to engage with the KubeLinter community, including maintainers and other users, you can join the Slack workspace [here](https://join.slack.com/t/kube-linter/shared_invite/zt-kla9qvyo-Tk~wynTSbr9EE3AjHcv4BQ).
 
-## 📊 Report Structure
+To contribute, check out our [contributing guide](./CONTRIBUTING.md).
 
-The tool generates comprehensive reports with the following sections:
+As a reminder, all participation in the KubeLinter community is governed by our [code of conduct](./CODE_OF_CONDUCT.md).
 
-### 📈 Validation Summary
-- Total files checked
-- Valid vs. invalid files
-- Success rate percentage
-- Total error count
+## WARNING: Alpha release
 
-### 🚨 Error Breakdown
-- Categorized error types
-- Error frequency analysis
-- Priority ranking
+KubeLinter is at an early stage of development. There may be breaking changes in
+the future to the command usage, flags, and configuration file formats. However,
+we encourage you to use KubeLinter to test your environment YAML files, see what
+breaks, and [contribute](./CONTRIBUTING.md).
 
-### 💡 Immediate Recommendations
-- Automated recommendations based on error patterns
-- Actionable next steps
-- Best practices suggestions
+## LICENSE
 
-### 🤖 AI Analysis
-- Executive summary
-- Key issues identification
-- Security implications
-- Performance impact assessment
-- Specific remediation steps
-- Risk assessment
+KubeLinter is licensed under the [Apache License 2.0](./LICENSE).
 
-## 🏗️ Architecture
+## StackRox
 
-The tool consists of four main components:
+KubeLinter is made with ❤️ by [StackRox](https://stackrox.com/).
 
-### 1. KubevalTool (`kubeval_tool.py`)
-- Wraps the kubeval binary
-- Handles validation of individual files and directories
-- Provides batch validation capabilities
-- Supports custom schema locations
-
-### 2. RepoFetcher (`repo_fetcher.py`)
-- Clones Git repositories
-- Identifies Kubernetes YAML files
-- Manages temporary directories
-- Supports branch-specific validation
-
-### 3. ValidationAgent (`validation_agent.py`)
-- Processes kubeval results
-- Generates AI-powered insights
-- Categorizes and prioritizes errors
-- Creates structured reports
-
-### 4. KubernetesValidator (`validate.py`)
-- Main orchestrator class
-- Handles command-line arguments
-- Manages environment configuration
-- Coordinates all components
-
-## 🔍 Error Categories
-
-The tool automatically categorizes validation errors into:
-
-- **Schema Validation**: Basic schema compliance issues
-- **API Version**: Outdated or invalid API versions
-- **Resource Kind**: Invalid or missing resource kinds
-- **Metadata**: Metadata-related issues
-- **Specification**: Resource specification problems
-- **Missing Required Fields**: Required fields not present
-- **Format/Syntax**: YAML syntax and formatting issues
-- **File Not Found**: Missing or inaccessible files
-- **Other**: Uncategorized errors
-
-## 🚦 Exit Codes
-
-The tool uses different exit codes to indicate various states:
-
-- `0`: Success (all files valid)
-- `1`: General error (configuration, network, etc.)
-- `2`: No Kubernetes files found
-- `3`: Validation failures found
-
-## 🔧 Development
-
-### Running Tests
-
-```bash
-# Test kubeval installation
-python -c "from kubeval_tool import KubevalTool; KubevalTool()"
-
-# Test with sample files
-python validate.py --files examples/*.yaml
-```
-
-### Extending the Tool
-
-#### Adding New Error Categories
-
-Modify the `_categorize_error` method in `ValidationAgent`:
-
-```python
-def _categorize_error(self, error_message: str) -> str:
-    error_lower = error_message.lower()
-    
-    if 'your_pattern' in error_lower:
-        return 'Your Category'
-    # ... existing categories
-```
-
-#### Customizing AI Prompts
-
-Modify the `_create_analysis_prompt` method in `ValidationAgent` to adjust the AI analysis prompt.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 🆘 Troubleshooting
-
-### Common Issues
-
-1. **kubeval not found**: Ensure kubeval is installed and in your PATH
-2. **Repository access denied**: Check repository URL and authentication
-3. **AI API errors**: Verify API key, URL, and model name in `.env`
-4. **No Kubernetes files found**: Check repository contents and file patterns
-
-### Debug Mode
-
-For detailed error information, check the console output during validation runs.
-
-## 📞 Support
-
-For issues and feature requests, please create an issue in the project repository.
+If you're interested in KubeLinter, or in any of the other cool things we do, please know that we're hiring!
+Check out our [open positions](https://www.stackrox.com/job-board/). We'd love to hear from you!

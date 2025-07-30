@@ -55,4 +55,28 @@ kubeval_repo_*/
 
 # Reports
 validation-report.*
-report.* 
+report.*
+*_report.txt
+batch_*.txt
+results.txt
+single_batch_*.txt
+
+# Binary tools and executables
+kube-linter
+kubeconform
+kubectl
+terraform
+tfsec
+tflint
+
+# Archives and downloads
+*.tar.gz
+*.tar.bz2
+*.zip
+
+# Test files and directories
+test-*.yaml
+*service.yaml
+valid/
+temp/
+demo/ 

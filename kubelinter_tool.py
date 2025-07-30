@@ -6,72 +6,68 @@ import tempfile
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 
-class KubeconformTool:
+
+class KubeLinterTool:
     """
-    A wrapper around kubeconform for validating Kubernetes YAML files.
+    A wrapper around kube-linter for linting Kubernetes YAML files.
     """
     
-    def __init__(self, schema_location: Optional[str] = None):
-        self.schema_location = schema_location or "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/"
-        self._check_kubeconform_installation()
+    def __init__(self, config_file: Optional[str] = None):
+        self.config_file = config_file
+        self._check_kubelinter_installation()
     
-    def _check_kubeconform_installation(self) -> bool:
-        """Check if kubeconform is installed and accessible."""
+    def _check_kubelinter_installation(self) -> bool:
+        """Check if kube-linter is installed and accessible."""
         try:
-            result = subprocess.run(['./kubeconform', '-v'], 
+            result = subprocess.run(['./kube-linter', 'version'], 
                                   capture_output=True, text=True, timeout=10)
             if result.returncode != 0:
-                raise RuntimeError("kubeconform is not properly installed or not accessible")
+                raise RuntimeError("kube-linter is not properly installed or not accessible")
             return True
         except (subprocess.TimeoutExpired, FileNotFoundError):
-            raise RuntimeError("kubeconform is not installed. Please install it from: https://github.com/yannh/kubeconform")
+            raise RuntimeError("kube-linter is not installed. Please install it from: https://github.com/stackrox/kube-linter")
     
-    def validate_file(self, file_path: str) -> Dict[str, Any]:
+    def lint_file(self, file_path: str) -> Dict[str, Any]:
         """
-        Validate a single Kubernetes YAML file using kubeconform.
+        Lint a single Kubernetes YAML file using kube-linter.
         
         Args:
-            file_path: Path to the YAML file to validate
+            file_path: Path to the YAML file to lint
             
         Returns:
-            Dict containing validation results
+            Dict containing linting results
         """
         if not os.path.exists(file_path):
             return {
                 "file": file_path,
                 "valid": False,
+                "kubelinter_output": {"Reports": []},
                 "errors": [f"File not found: {file_path}"]
             }
         
         try:
-            # Run kubeconform with verbose output for better error reporting
-            cmd = [
-                './kubeconform',
-                '-output=json',
-                '-verbose'
-            ]
+            # Run kube-linter with JSON output for easier parsing
+            cmd = ['./kube-linter', 'lint', '--format', 'json', file_path]
             
-            # Add schema location if provided
-            if self.schema_location:
-                cmd.extend(['-schema-location', self.schema_location])
-            
-            cmd.append(file_path)
+            if self.config_file:
+                cmd.extend(['--config', self.config_file])
             
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
             
-            # Parse kubeconform output
+            # Parse kube-linter output
             if result.stdout:
                 try:
-                    kubeconform_output = json.loads(result.stdout)
+                    kubelinter_output = json.loads(result.stdout)
                 except json.JSONDecodeError:
-                    kubeconform_output = {"resources": []}
+                    kubelinter_output = {"Reports": []}
             else:
-                kubeconform_output = {"resources": []}
+                kubelinter_output = {"Reports": []}
             
+            # kube-linter returns 0 when no issues found, 1 when issues found
             return {
                 "file": file_path,
                 "valid": result.returncode == 0,
-                "kubeconform_output": kubeconform_output,
+                "kubelinter_output": kubelinter_output,
                 "errors": result.stderr.split('\n') if result.stderr else [],
                 "return_code": result.returncode
             }
@@ -80,52 +76,54 @@ class KubeconformTool:
             return {
                 "file": file_path,
                 "valid": False,
-                "errors": ["Validation timeout after 30 seconds"]
+                "kubelinter_output": {"Reports": []},
+                "errors": ["Linting timeout after 30 seconds"]
             }
         except Exception as e:
             return {
                 "file": file_path,
                 "valid": False,
-                "errors": [f"Validation error: {str(e)}"]
+                "kubelinter_output": {"Reports": []},
+                "errors": [f"Linting error: {str(e)}"]
             }
     
-    def validate_directory(self, directory_path: str, recursive: bool = True) -> List[Dict[str, Any]]:
+    def lint_directory(self, directory_path: str, recursive: bool = True) -> List[Dict[str, Any]]:
         """
-        Validate all YAML files in a directory.
+        Lint all YAML files in a directory.
         
         Args:
             directory_path: Path to directory containing YAML files
             recursive: Whether to search subdirectories
             
         Returns:
-            List of validation results for each file
+            List of linting results for each file
         """
         yaml_files = self._find_yaml_files(directory_path, recursive)
         results = []
         
         for yaml_file in yaml_files:
-            result = self.validate_file(yaml_file)
+            result = self.lint_file(yaml_file)
             results.append(result)
         
         return results
     
-    def validate_content(self, yaml_content: str, filename: str = "temp.yaml") -> Dict[str, Any]:
+    def lint_content(self, yaml_content: str, filename: str = "temp.yaml") -> Dict[str, Any]:
         """
-        Validate YAML content directly without saving to a permanent file.
+        Lint YAML content directly without saving to a permanent file.
         
         Args:
             yaml_content: YAML content as string
-            filename: Temporary filename for validation
+            filename: Temporary filename for linting
             
         Returns:
-            Dict containing validation results
+            Dict containing linting results
         """
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as temp_file:
             temp_file.write(yaml_content)
             temp_file_path = temp_file.name
         
         try:
-            result = self.validate_file(temp_file_path)
+            result = self.lint_file(temp_file_path)
             result["file"] = filename  # Use the provided filename instead of temp path
             return result
         finally:
@@ -152,18 +150,35 @@ class KubeconformTool:
         
         return sorted(yaml_files)
     
-    def batch_validate(self, file_paths: List[str]) -> List[Dict[str, Any]]:
+    def batch_lint(self, file_paths: List[str]) -> List[Dict[str, Any]]:
         """
-        Validate multiple files in batch.
+        Lint multiple files in batch.
         
         Args:
-            file_paths: List of file paths to validate
+            file_paths: List of file paths to lint
             
         Returns:
-            List of validation results
+            List of linting results
         """
         results = []
         for file_path in file_paths:
-            result = self.validate_file(file_path)
+            result = self.lint_file(file_path)
             results.append(result)
-        return results 
+        return results
+    
+    def get_available_checks(self) -> List[str]:
+        """
+        Get list of available kube-linter checks.
+        
+        Returns:
+            List of available check names
+        """
+        try:
+            result = subprocess.run(['./kube-linter', 'checks', 'list', '--format', 'json'], 
+                                  capture_output=True, text=True, timeout=10)
+            if result.returncode == 0 and result.stdout:
+                checks_data = json.loads(result.stdout)
+                return [check.get('Name', '') for check in checks_data.get('Checks', [])]
+            return []
+        except Exception:
+            return [] 
